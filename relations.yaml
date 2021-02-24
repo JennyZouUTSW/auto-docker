@@ -1,5 +1,5 @@
 images:
-  base:
+  jennybase:
     1.0.0:
       children:
       - null
@@ -8,8 +8,8 @@ images:
   ubuntu:
     '18.04':
       children:
-      - base:1.0.0
+      - jennybase:1.0.0
       parents: []
 latest:
-  base: 1.0.0
+  jennybase: 1.0.0
 terminated: {}
