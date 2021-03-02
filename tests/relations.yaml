@@ -12,4 +12,5 @@ images:
       parents: []
 latest:
   base: 1.0.0
-terminated: {}
+terminated: 
+  - test_image2
