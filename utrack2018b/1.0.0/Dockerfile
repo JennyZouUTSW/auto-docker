@@ -6,7 +6,7 @@
 #
 # See http://www.mathworks.com/products/compiler/mcr/ for more info.
 
-FROM jennyzouutsw/jennybase:1.0.0
+FROM ubuntu:xenial
 
 # Install the MCR dependencies and some things we'll need and download the MCR
 # from Mathworks -silently install it
