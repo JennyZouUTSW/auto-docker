@@ -138,26 +138,27 @@ def write_yaml():
     yaml_file.close()
 
 
-def update_ancestor(parent, docker_image):
+def update_ancestor(parents, docker_image):
     """
     Updates any ancestor entries tied with this image to include them in their child tables
     :param parent: The parent image specified for updating
     :param docker_image: The docker image specified for updating in 'image_name:image_version' format
     """
-    parent_name = parent.split(':')[0]
-    parent_version = parent.split(':')[1]
-    grandparent = []
-    new_children = []
-    if parent in ORIDATA['images']:
-        new_children = ORIDATA['images'][parent_name][parent_version]['children']
-        if (new_children == 'none') or (new_children == [None]) or (new_children == []):
-            new_children = [docker_image]
-        elif not docker_image in ORIDATA['images'][parent_name][parent_version]['children']:
+    for parent in parents:
+        parent_name = parent.split(':')[0]
+        parent_version = parent.split(':')[1]
+        grandparent = []
+        new_children = []
+        if parent in ORIDATA['images']:
+            new_children = ORIDATA['images'][parent_name][parent_version]['children']
+            if (new_children == 'none') or (new_children == [None]) or (new_children == []):
+                new_children = [docker_image]
+            elif not docker_image in ORIDATA['images'][parent_name][parent_version]['children']:
+                new_children.append([docker_image])
+            grandparent = ORIDATA['images'][parent_name][parent_version]['parents']
+        else:
             new_children.append([docker_image])
-        grandparent = ORIDATA['images'][parent_name][parent_version]['parents']
-    else:
-        new_children.append([docker_image])
-    build_entry(parent_name, parent_version, grandparent, new_children)
+        build_entry(parent_name, parent_version, grandparent, new_children)
 
 
 def build_entry(image_name, image_version, parent_images, child_images):
