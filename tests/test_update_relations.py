@@ -93,8 +93,7 @@ def test_update_ancestor():
     yaml_file.close()
     temp_var_ori = update_relations.ORIDATA
     update_relations.update_ancestor("ubuntu:18.04", "base:1.0.1")
-    assert [
-        'base:1.0.1'] in update_relations.NEWDATA['images']['ubuntu']['18.04']['children']
+    assert 'base:1.0.1' in update_relations.NEWDATA['images']['ubuntu']['18.04']['children']
 
 
 @pytest.mark.test_build_latest
