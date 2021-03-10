@@ -10,19 +10,19 @@ FROM ubuntu:xenial
 
 # Install the MCR dependencies and some things we'll need and download the MCR
 # from Mathworks -silently install it
-RUN apt-get -qq update; \
-    apt-get -qq install -y unzip xorg wget curl; \
+RUN apt-get -qq update && \
+    apt-get -qq install -y unzip xorg wget curl && \
     mkdir -p /mcr-install; \
     mkdir -p /opt/mcr; \
     mkdir -p /execute; \
-    (wget http://ssd.mathworks.com/supportfiles/downloads/R2018b/deployment_files/R2018b/installers/glnxa64/MCR_R2018b_glnxa64_installer.zip -P /mcr-install; \
-    unzip -q /mcr-install/MCR_R2018b_glnxa64_installer.zip -d /mcr-install; \
-    ./mcr-install/install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent; \
+    (wget http://ssd.mathworks.com/supportfiles/downloads/R2018b/deployment_files/R2018b/installers/glnxa64/MCR_R2018b_glnxa64_installer.zip -P /mcr-install && \
+    unzip -q /mcr-install/MCR_R2018b_glnxa64_installer.zip -d /mcr-install && \
+    ./mcr-install/install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent && \
     rm -rf mcr-install) & \
-    (wget --no-check-certificate https://cloud.biohpc.swmed.edu/index.php/s/Dn3jCT2xm4NToAW/download -O download.zip; \
-    unzip download.zip; \
-    mv for_testing /execute/utrack; \
-    chmod +x /execute/utrack/run_utrack.sh /execute/utrack/utrack; \
+    (wget --no-check-certificate https://cloud.biohpc.swmed.edu/index.php/s/C6F5PwEgEe7atTa/download -O download.zip && \
+    unzip download.zip && \
+    mv for_testing /execute/utrack && \
+    chmod +x /execute/utrack/run_utrack.sh /execute/utrack/utrack && \
     rm download.zip) & \
     wait
 
