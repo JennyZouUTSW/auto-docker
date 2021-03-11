@@ -15,14 +15,6 @@ RUN apt-get -qq update; \
     mkdir -p /mcr-install; \
     mkdir -p /opt/mcr; \
     mkdir -p /execute; \
-    mkdir -p /home/developer; \
-    (export uid=1000 gid=1000 && \
-    mkdir -p /home/developer && \
-    echo "developer:x:${uid}:${gid}:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd && \
-    echo "developer:x:${uid}:" >> /etc/group && \
-    echo "developer ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/developer && \
-    chmod 0440 /etc/sudoers.d/developer && \
-    chown ${uid}:${gid} -R /home/developer) & \
     (wget http://ssd.mathworks.com/supportfiles/downloads/R2018b/deployment_files/R2018b/installers/glnxa64/MCR_R2018b_glnxa64_installer.zip -P /mcr-install; \
     unzip -q /mcr-install/MCR_R2018b_glnxa64_installer.zip -d /mcr-install; \
     ./mcr-install/install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent; \
