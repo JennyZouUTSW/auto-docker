@@ -12,7 +12,8 @@ images:
       parents: []
     xenial:
       children:
-      - utrack2018b:1.0.0
+      - utrack2018b:1.0.1
+      - - utrack2018b:1.0.0
       parents: []
   utrack2018b:
     1.0.0:
@@ -20,7 +21,12 @@ images:
       - null
       parents:
       - ubuntu:xenial
+    1.0.1:
+      children:
+      - null
+      parents:
+      - ubuntu:xenial
 latest:
   jennybase: 1.0.0
-  utrack2018b: 1.0.0
+  utrack2018b: 1.0.1
 terminated: {}
