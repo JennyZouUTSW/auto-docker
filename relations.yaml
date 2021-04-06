@@ -3,9 +3,8 @@ images:
     1.0.0:
       children:
       - mcr2020a:1.0.0
-      - - null
       parents:
-      - - ubuntu:18.04
+      - ubuntu:18.04
   mcr2020a:
     1.0.0:
       children:
@@ -15,6 +14,7 @@ images:
   ubuntu:
     '18.04':
       children:
+      - base:1.0.0
       - jennybase:1.0.0
       parents: []
     xenial:
