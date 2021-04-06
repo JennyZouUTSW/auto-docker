@@ -1,10 +1,4 @@
 images:
-  base:
-    1.0.0:
-      children:
-      - null
-      parents:
-      - ubuntu:18.04
   jennybase:
     1.0.0:
       children:
@@ -34,7 +28,6 @@ images:
       parents:
       - ubuntu:xenial
 latest:
-  base: 1.0.0
   jennybase: 1.0.0
   mcr2020a: 1.0.0
   utrack2018b: 1.0.0
