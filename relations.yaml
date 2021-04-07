@@ -8,7 +8,7 @@ images:
   mcr2020a:
     1.0.0:
       children:
-      - null
+      - utrack3d1.0:1.0.0
       parents:
       - jennybase:1.0.0
   ubuntu:
@@ -27,8 +27,15 @@ images:
       - null
       parents:
       - ubuntu:xenial
+  utrack3d1.0:
+    1.0.0:
+      children:
+      - null
+      parents:
+      - mcr2020a:1.0.0
 latest:
   jennybase: 1.0.0
   mcr2020a: 1.0.0
   utrack2018b: 1.0.0
+  utrack3d1.0: 1.0.0
 terminated: {}
