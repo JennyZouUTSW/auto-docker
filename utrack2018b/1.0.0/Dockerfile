@@ -11,7 +11,7 @@ FROM ubuntu:xenial
 # Install the MCR dependencies and some things we'll need and download the MCR
 # from Mathworks -silently install it
 RUN apt-get -qq update; \
-    apt-get -qq install -y unzip xorg wget curl; \
+    apt-get -qq install -y unzip xorg wget curl x11-apps; \
     mkdir -p /mcr-install; \
     mkdir -p /opt/mcr; \
     mkdir -p /execute; \
@@ -19,7 +19,7 @@ RUN apt-get -qq update; \
     unzip -q /mcr-install/MCR_R2018b_glnxa64_installer.zip -d /mcr-install; \
     ./mcr-install/install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent; \
     rm -rf mcr-install) & \
-    (wget --no-check-certificate https://cloud.biohpc.swmed.edu/index.php/s/Dn3jCT2xm4NToAW/download -O download.zip; \
+    (wget --no-check-certificate https://cloud.biohpc.swmed.edu/index.php/s/fEfYtCcAAmGPp8p/download -O download.zip; \
     unzip download.zip; \
     mv for_testing /execute/utrack; \
     chmod +x /execute/utrack/run_utrack.sh /execute/utrack/utrack; \
@@ -28,3 +28,6 @@ RUN apt-get -qq update; \
 
 # Configure environment variables for MCR
 ENV LD_LIBRARY_PATH /opt/mcr/v95/runtime/glnxa64:/opt/mcr/v95/bin/glnxa64:/opt/mcr/v95/sys/os/glnxa64:/opt/mcr/v95/extern/bin/glnxa64
+
+# Configure to use the DISPLAY ENV variable for the GUI
+ENV DISPLAY :0

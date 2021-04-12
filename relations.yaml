@@ -8,8 +8,8 @@ images:
   mcr2020a:
     1.0.0:
       children:
-      - utrack3d1.0:1.0.0
       - utrack2.3:1.0.0
+      - utrack3d1.0:1.0.0
       parents:
       - jennybase:1.0.0
   ubuntu:
