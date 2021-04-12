@@ -19,7 +19,7 @@ RUN apt-get -qq update; \
     unzip -q /mcr-install/MCR_R2018b_glnxa64_installer.zip -d /mcr-install; \
     ./mcr-install/install -destinationFolder /opt/mcr -agreeToLicense yes -mode silent; \
     rm -rf mcr-install) & \
-    (wget --no-check-certificate https://cloud.biohpc.swmed.edu/index.php/s/C6F5PwEgEe7atTa/download -O download.zip; \
+    (wget --no-check-certificate https://cloud.biohpc.swmed.edu/index.php/s/fEfYtCcAAmGPp8p/download -O download.zip; \
     unzip download.zip; \
     mv for_testing /execute/utrack; \
     chmod +x /execute/utrack/run_utrack.sh /execute/utrack/utrack; \
