@@ -42,7 +42,7 @@ If you're not used to this workflow with git, you can start with some [docs from
 
 Credits
 =======
-This workflow is was developed by [Bioinformatic Core Facility (BICF), Department of Bioinformatics](http://www.utsouthwestern.edu/labs/bioinformatics/)
+This workflow was developed by [Bioinformatic Core Facility (BICF), Department of Bioinformatics](http://www.utsouthwestern.edu/labs/bioinformatics/)
 
 PI
 --
